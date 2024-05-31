@@ -7,11 +7,15 @@ import Subscriptions from "../Subscriptions/Subscriptions";
 import Savings from "../Savings/Savings";
 import Loans from "../Loans/Loans";
 import Financial from "../Financial/Financial";
+import Article from "../Articles/Articles";
 
 const ContentMain = () => {
   return (
     <div className="main-content-holder">
-        <div className="content-grid-one">
+      <div className="content-grid-ne">
+        <Article></Article>
+      </div>
+      {/* <div className="content-grid-one">
             <Cards />
             <Transactions />
             <Report />
@@ -31,7 +35,7 @@ const ContentMain = () => {
                 <Financial />
               </div>
             </div>
-        </div>
+        </div> */}
     </div>
   )
 }
