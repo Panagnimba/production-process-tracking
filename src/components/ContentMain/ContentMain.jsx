@@ -8,12 +8,14 @@ import Savings from "../Savings/Savings";
 import Loans from "../Loans/Loans";
 import Financial from "../Financial/Financial";
 import Article from "../Articles/Articles";
+import Parametrage from "../Parametrage/Parametrage";
 
 const ContentMain = () => {
   return (
     <div className="main-content-holder">
       <div className="content-grid-ne">
         <Article></Article>
+        <Parametrage></Parametrage>
       </div>
       {/* <div className="content-grid-one">
             <Cards />

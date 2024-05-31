@@ -1,0 +1,26 @@
+.article-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+ 
+    color: var(--clr-white);
+    /* border: 1px solid red; */
+}
+.article-content{
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.article-top .button{
+    color: var(--clr-white);
+    background-color: var(--clr-pumpkin);
+    border: none;
+    outline: none;
+    padding: 10px 10px;
+    border-radius: 10px;
+    margin: 15px;
+}
+.article-top .button.active{
+    background-color: #45a049 ;
+}
