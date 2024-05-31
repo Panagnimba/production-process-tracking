@@ -8,7 +8,7 @@ import { SidebarContext } from '../../context/sidebarContext';
 const Sidebar = () => {
   const [activeLinkIdx,setActiveLinkIdx] = useState(1);
   const [sidebarClass, setSidebarClass] = useState("");
-  const { isSidebarOpen } = useContext(SidebarContext);
+  const { isSidebarOpen ,selectSidebarItem,sideActiveLinkIdx} = useContext(SidebarContext);
 
   useEffect(() => {
     if(isSidebarOpen){
@@ -16,10 +16,12 @@ const Sidebar = () => {
     } else {
       setSidebarClass('');
     }
-  }, [isSidebarOpen]);
+    // console.log(sideActiveLinkIdx)
+  }, [isSidebarOpen,sideActiveLinkIdx]);
 function itemClicked({item})
 {
   setActiveLinkIdx(item.id)
+  selectSidebarItem(item.id)
   // console.log(item)
 }
   return (

@@ -3,7 +3,8 @@ import reducer from "../reducer/sidebarReducer";
 import PropTypes from 'prop-types';
 
 const initialState = {
-    isSidebarOpen: false
+    isSidebarOpen: false,
+    sideActiveLinkIdx:1
 }
 
 export const SidebarContext = createContext({});
@@ -12,10 +13,14 @@ export const SidebarProvider = ({ children }) => {
     const toggleSidebar = () => {
         dispatch({ type: "TOGGLE_SIDEBAR" })
     }
+    const selectSidebarItem = (idx) => {
+        dispatch({ type: "CLICK_SIDEBAR_ITEM",sideActiveLinkIdx:idx })
+    }
     return (
         <SidebarContext.Provider value = {{
             ...state,
-            toggleSidebar
+            toggleSidebar,
+            selectSidebarItem
         }}>
             { children }
         </SidebarContext.Provider>
