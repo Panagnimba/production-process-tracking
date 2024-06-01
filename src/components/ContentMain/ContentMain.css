@@ -1,6 +1,5 @@
 /* main content holder */
 .main-content-holder {
- 
   display: grid;
   row-gap: 20px;
 }

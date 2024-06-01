@@ -11,11 +11,11 @@ import Loans from "../Loans/Loans";
 import Financial from "../Financial/Financial";
 import Article from "../Articles/Articles";
 import Parametrage from "../Parametrage/Parametrage";
+import Production from "../Production/Production"
 
 const ContentMain = () => {
   const { sideActiveLinkIdx } = useContext(SidebarContext);
   function renderContent() {
-    console.log(sideActiveLinkIdx)
     if (sideActiveLinkIdx == 1) return (
       <>
         <div className="content-grid-one">
@@ -43,6 +43,7 @@ const ContentMain = () => {
     )
     if (sideActiveLinkIdx == 2) return <Article></Article>
     else if (sideActiveLinkIdx == 3) return <Parametrage></Parametrage>
+    else if (sideActiveLinkIdx == 4) return <Production></Production>
 
   }
   return (
