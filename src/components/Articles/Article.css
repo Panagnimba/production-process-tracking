@@ -12,6 +12,10 @@
     justify-content: center;
     align-items: center;
 }
+.article-top{
+    display: flex;
+    align-items: center;
+}
 .article-top .button{
     color: var(--clr-white);
     background-color: var(--clr-pumpkin);
@@ -20,6 +24,12 @@
     padding: 10px 10px;
     border-radius: 10px;
     margin: 15px;
+}
+.article-top select{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: var(--clr-white);
 }
 .article-top .button.active{
     background-color: #45a049 ;
