@@ -76,7 +76,7 @@ const ParametrageTable = () => {
             <th>Production Step 2 Time</th>
             <th>Production Step 3 Time</th>
             <th>Conditionnement Time</th>
-            <th>Stock PF Time</th>
+            <th>Manutention 2 Time</th>
             <th>Date de Création</th>
             <th>Actions</th>
           </tr>

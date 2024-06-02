@@ -12,6 +12,7 @@ export default function ProductionTable(){
       let resp = await axiosInstance.get("/historiques")
       if (resp.data.success) {
         setProductions(resp.data.result);
+        // console.log(resp.data.result)
       }
     };
     
@@ -19,30 +20,15 @@ export default function ProductionTable(){
 
   }, []); 
 
-  const handleUpdate = (id) => {
-    // Implement update logic
-    console.log(`Update parametrage with ID: ${id}`);
-  };
-
-  const handleDelete = async(id) => {
-    if (confirm("Voulez vous supprimer cet elements")) {
-      let resp = await axiosInstance.delete(`/productions/${id}`)
-      if (resp.data.success) {
-          setProductions(productions.filter(param => param.idProduction !== id));
-      }
-
-  }
-  };
-
-  function setRowStyleBasedOnStep(param){
-    if(param.etape < 3) return {backgroundColor:"white",color:"#473b33"}
-    if(param.etape >= 3 && param.etape < 6) return {backgroundColor:"gold"}
-    if(param.etape >= 6) return {backgroundColor:"green",color:"white"}
+  function setStyleBasedOnCompare(hist , param){
+    console.log(hist,param)
+    if(hist < param) return {backgroundColor:"green",color:"white"}
+    if(hist > param) return {backgroundColor:"red",color:"white"}
   }
 
   return (
     <div className="container mt-5">
-      <h1>Productivity tracking</h1>
+      <h1 style={{color:"white"}}>Bilan de production</h1>
       <table className="table table-striped">
         <thead>
           <tr>
@@ -50,38 +36,31 @@ export default function ProductionTable(){
             <th>Designation</th>
             <th>ID Article</th>
             <th>Quantite</th>
-            <th>Etape</th>
             <th>Stock MP Time</th>
             <th>Manutention Time</th>
             <th>Production Step 1 Time</th>
             <th>Production Step 2 Time</th>
             <th>Production Step 3 Time</th>
             <th>Conditionnement Time</th>
-            <th>Stock PF Time</th>
+            <th>Manutention 2 Time</th>
             <th>Date de Création</th>
-            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          {productions.map((param,idx) => (
-            <tr key={idx} style={setRowStyleBasedOnStep(param)}>
-              <td>{param.idHistorique}</td>
-              <td>{param.designation}</td>
-              <td>{param.idArticle}</td>
-              <td>{param.quantite}</td>
-              <td>{param.etape}</td>
-              <td>{param.stock_mp_time}</td>
-              <td>{param.manutention_time}</td>
-              <td>{param.production_step1_time}</td>
-              <td>{param.production_step2_time}</td>
-              <td>{param.production_step3_time}</td>
-              <td>{param.conditionnement_time}</td>
-              <td>{param.stock_pf_time}</td>
-              <td>{new  Date(param.date_creation).toLocaleString()}</td>
-              <td >
-              <img src={iconsImgs.pen} alt="" className='icon' onClick={() => handleUpdate(param.idProduction)} style={{marginRight:"25px",cursor:"pointer"}}/>
-              <img src={iconsImgs.trash} alt="" className='icon' onClick={() => handleDelete(param.idProduction)} style={{cursor:"pointer"}}/>
-              </td>
+          {productions.map((prod,idx) => (
+            <tr key={idx} style={{backgroundColor:"white",color:"#473b33"}}>
+              <td>{prod.idHistorique}</td>
+              <td>{prod.designation}</td>
+              <td>{prod.idArticle}</td>
+              <td>{prod.quantite}</td>
+              <td style={setStyleBasedOnCompare(prod.hist_stock_mp_time,prod.param_stock_mp_time)}>{`${prod.hist_stock_mp_time}/${prod.param_stock_mp_time}`}</td>
+              <td style={setStyleBasedOnCompare(prod.hist_manutention_time,prod.param_manutention_time)}>{`${prod.hist_manutention_time}/${prod.param_manutention_time}`}</td>
+              <td style={setStyleBasedOnCompare(prod.hist_production_step1_time,prod.param_production_step1_time)}>{`${prod.hist_production_step1_time}/${prod.param_production_step1_time}`}</td>
+              <td style={setStyleBasedOnCompare(prod.hist_production_step2_time,prod.param_production_step2_time)}>{`${prod.hist_production_step2_time}/${prod.param_production_step2_time}`}</td>
+              <td style={setStyleBasedOnCompare(prod.hist_production_step3_time,prod.param_production_step3_time)}>{`${prod.hist_production_step3_time}/${prod.param_production_step3_time}`}</td>
+              <td style={setStyleBasedOnCompare(prod.hist_conditionnement_time,prod.param_conditionnement_time)}>{`${prod.hist_conditionnement_time}/${prod.param_conditionnement_time}`}</td>
+              <td style={setStyleBasedOnCompare(prod.hist_stock_pf_time,prod.param_stock_pf_time)}>{`${prod.hist_stock_pf_time}/${prod.param_stock_pf_time}`}</td>
+              <td>{new  Date(prod.date_creation).toLocaleString()}</td>
             </tr>
           ))}
         </tbody>

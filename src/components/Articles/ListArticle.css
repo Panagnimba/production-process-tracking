@@ -35,6 +35,10 @@ tr:nth-child(even) {
     background-color: var(--clr-white);
     color: var(--clr-primary);
 }
+tr:nth-child(odd) {
+    background-color: var(--clr-primary);
+    color: var(--clr-white);
+}
 
 .button.delete {
     padding: 5px 10px;

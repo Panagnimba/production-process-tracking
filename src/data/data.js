@@ -8,10 +8,8 @@ export const navigationLinks = [
     { id: 4, title: 'Production', image: iconsImgs.report },
     { id: 5, title: 'Scanner', image: iconsImgs.bills },
     { id: 6, title: 'Reports', image: iconsImgs.report },
-    { id: 7, title: 'Savings', image: iconsImgs.wallet },
-    { id: 8, title: 'Financial Advice', image: iconsImgs.wealth },
-    { id: 9, title: 'Account', image: iconsImgs.user },
-    { id: 10, title: 'Settings', image: iconsImgs.gears }
+    { id: 7, title: 'Gestionnaire', image: iconsImgs.user },
+    { id: 8, title: 'Settings', image: iconsImgs.gears }
 ];
 
 export const transactions = [

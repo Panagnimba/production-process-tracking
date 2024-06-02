@@ -5,13 +5,13 @@
 }
 .content-grid-one {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 16px;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 16px;
 }
 .content-grid-two {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
 }
 
 .subgrid-two {
