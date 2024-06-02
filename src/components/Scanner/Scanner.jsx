@@ -10,8 +10,8 @@ export default function Parametrage() {
     }
     async function handleScan(result){
         let id = result[0].rawValue
-        let resp = await axiosInstance.put(`/production/${id}`)
         console.log(`idArticle =>${id}`)
+        let resp = await axiosInstance.put(`/production/${13}`)
         console.log(resp.data)
     }
     return (

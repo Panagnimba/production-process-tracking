@@ -13,6 +13,7 @@ import Article from "../Articles/Articles";
 import Parametrage from "../Parametrage/Parametrage";
 import Production from "../Production/Production"
 import Scanner from "../Scanner/Scanner"
+import Historique from "../Report/Historique"
 
 const ContentMain = () => {
   const { sideActiveLinkIdx } = useContext(SidebarContext);
@@ -46,6 +47,7 @@ const ContentMain = () => {
     else if (sideActiveLinkIdx == 3) return <Parametrage></Parametrage>
     else if (sideActiveLinkIdx == 4) return <Production></Production>
     else if (sideActiveLinkIdx == 5) return <Scanner></Scanner>
+    else if (sideActiveLinkIdx == 6) return <Historique></Historique>
 
   }
   return (
