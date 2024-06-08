@@ -3,7 +3,7 @@ import Sidebar from './layout/Sidebar/Sidebar';
 import Content from './layout/Content/Content';
 
 function App() {
-  console.log("front test 1")
+  console.log("front test 1 2")
   return (
     <>
       <div className='app'>
